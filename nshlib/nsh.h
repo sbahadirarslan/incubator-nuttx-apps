@@ -1211,6 +1211,12 @@ int cmd_pmconfig(FAR struct nsh_vtbl_s *vtbl, int argc, char **argv);
 #  endif
 #endif
 
+#if defined(CONFIG_SCHED_INSTRUMENTATION_TRACER) && defined(CONFIG_DRIVER_TRACER)
+#  ifndef CONFIG_NSH_DISABLE_TRACE
+      int cmd_trace(FAR struct nsh_vtbl_s *vtbl, int argc, char **argv);
+#  endif
+#endif
+
 /****************************************************************************
  * Name: nsh_extmatch_count
  *

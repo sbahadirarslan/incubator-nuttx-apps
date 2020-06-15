@@ -128,4 +128,8 @@ ifeq ($(CONFIG_NSH_LOGIN_PASSWD),y)
 CSRCS += nsh_passwdcmds.c
 endif
 
+ifneq ($(CONFIG_NSH_DISABLE_TRACE),y)
+CSRCS += nsh_trace.c
+endif
+
 include $(APPDIR)/Application.mk

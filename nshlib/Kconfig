@@ -588,6 +588,10 @@ config NSH_DISABLE_XD
 	default y if DEFAULT_SMALL
 	default n if !DEFAULT_SMALL
 
+config NSH_DISABLE_TRACE
+	bool "Disable trace"
+	default n
+
 endmenu
 
 if MMCSD

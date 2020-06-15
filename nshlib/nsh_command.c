@@ -520,6 +520,15 @@ static const struct cmdmap_s g_cmdmap[] =
   { "time",     cmd_time,     2, 2, "\"<command>\"" },
 #endif
 
+#if defined(CONFIG_SCHED_INSTRUMENTATION_TRACER) && defined(CONFIG_DRIVER_TRACER)
+#  ifndef CONFIG_NSH_DISABLE_TRACE
+  { "trace",    cmd_trace,    1, CONFIG_NSH_MAXARGUMENTS,
+    "[start [<duration>]] [stop] [dump [<filename>]] "
+    "[cmd \"<command>\"] [mode [{+|-}{o|s|a|i}...] "
+    "[syscall [{+|-}<syscallname>...]] [irq [{+|-}<irqnum>...]]" },
+#  endif
+#endif
+
 #ifndef CONFIG_NSH_DISABLESCRIPT
   { "true",     cmd_true,     1, 1, NULL },
 #endif
